@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Sets </title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: #3b4a6b; 
+  color: white;
+ background-image:url('pml.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-color: #0b1d3d;
+            color: white;
+            margin: 0;
+        }
+
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* Rotating Globe */
+.globe {
+  font-size: 60px;
+  display: inline-block;
+  animation: spin 12s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+header h1 {
+  font-size: 50px;
+  margin: 10px 0;
+}
+header h3 {
+  font-size: 20px;
+  color: #3a00cc;
+}
+
+/* NAVIGATION */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+nav div {
+  padding: 22px;
+  width: 220px;
+  text-align: center;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  transition: 0.3s;
+}
+/* Table Styles */
+.survey-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.survey-table th, 
+.survey-table td {
+    border: 1px solid #00A5E3;
+    padding: 12px;
+    text-align: center;
+}
+
+.survey-table th {
+    background-color: #FFAE70;
+    color: white;
+    font-weight: bold;
+}
+
+.survey-table tr:nth-child(even) {
+    background-color: #00BAE4;
+}
+
+.survey-table .row-highlight {
+    font-weight: bold;
+    background-color: #eaeded;
+}
+
+/* Navigation colors */
+nav div:nth-child(1) { background: #ff6b6b; }
+nav div:nth-child(2) { background: #4ecdc4; }
+nav div:nth-child(3) { background: #ffa502; }
+nav div:nth-child(4) { background: #FF5722; }
+nav div:nth-child(5) { background: #2ed573; }
+nav div:nth-child(6) { background: #e84393; }
+nav div:nth-child(7) { background: #1F51FF; }
+nav div:nth-child(8) { background: #39FF14; }
+nav div:hover { transform: scale(1.08); }
+
+/* PAGES */
+section {
+  display: none;
+  padding: 30px;
+}
+.active { display: block; }
+
+.pageTitle {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.back {
+  background:Orange;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+/* COMBINED CONTENT AREA */
+/* Change this in your existing .content rule */
+.content {
+  color: #0f172a;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 50px;
+  min-height: 600px;
+  width: 90%;
+  font-size: 18px;
+  line-height: 1.7;
+  overflow: auto;
+  background-color: #FDFBF4; /* ADD THIS LINE */
+}
+
+#intro .content {
+  background-color: #e0f7fa; /* Light Blue */
+}
+#remote .content {
+  background-color:#e0f7fa; /* Light Blue */
+}
+
+#protocols .content {
+  background-color: #FDFBF4; /* Light Blue */
+}
+
+#social.content {
+  background-color: #FDFBF4; /* Light Blue */
+}
+#zoom .content {
+  background-color:#D9E9CF; /* Light Blue */
+}
+#Sources .content {
+  background-color:#D9E9CF; /* Light Blue */
+}
+
+#Conclusion .content {
+  background-color:#e0f7fa; /* Light Blue */
+}
+
+
+/* Exception: Keeps the Members section white */
+#members .content {
+  background: white !important;
+  border: 1px solid #ddd;
+}
+
+
+.image-container{
+    display:flex;
+    gap: 20px; /* Space between images */
+    justify-content: center;
+}
+.content img {
+  width: 300px;      /* Increase image width */
+  height: auto;      /* Maintain aspect ratio */
+  border-radius: 8px;
+  margin: 15px 0;
+  display: block;
+  border: 2px solid #94a3b8;
+}
+.image-container img{
+    width=auto;
+}
+.content h2, .content h3 { 
+    color: #1e1b4b; 
+    font-size: 25px;
+    color: #24185e;
+    border-bottom: 3px solid #24185e;
+    padding-bottom: 10px;
+    margin-top: 50px;
+
+}
+
+.content ul { 
+  margin-left: 20px; 
+}
+
+
+/* ADD THIS NEW CSS BELOW */
+.members-container{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.member-box{
+width:150px;
+height:180px;
+border-radius:12px;
+padding:10px;
+text-align:center;
+color:white;
+}
+
+.member-box img{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:8px;
+}
+
+.member-box h3{
+margin:5px 0;
+font-size:16px;
+}
+
+.header {
+  padding: 40px;
+  text-align: center;
+}
+
+.header h1 {
+  color: white;          /* main heading in white */
+  margin: 0;
+  font-size:45px;
+  
+}
+
+.header h3{
+  color: white;          /* subheading in white */
+  margin: 40px 0 0;
+  font-size:25px;
+  font-family:"Comic Sans MS", cursive, sans-serif;
+;  /* font style */
+}
+
+  
+
+</style>
+
+<script>
+function showPage(id) {
+  let pages = document.querySelectorAll("section");
+  pages.forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function previewImage(input) {
+  const file = input.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = input.parentElement.querySelector('.preview');
+      img.src = e.target.result;
+      img.style.display = 'block';
+      input.remove(); // remove file input once image is loaded
+    }
+    reader.readAsDataURL(file);
+  }
+}
+</script>
+
+</head>
+<body>
+
+<!-- Header Section -->
+<header class="header">
+  <h1> Sets And Survey </h1>
+  <h3> Basic Understanding </h3> 
+
+
+
+</header>
+
+
+<!-- HOME PAGE -->
+<section id="home" class="active">
+  <nav>
+    <div onclick="showPage('intro')"> Introduction to Sets</div>
+    <div onclick="showPage('remote')"> Acknowledgement</div>
+    <div onclick="showPage('protocols')"> Thanksgiving </div>
+    <div onclick="showPage('social')"> Data analysis </div>
+    <div onclick="showPage('zoom')">Sources</div>
+    <div onclick="showPage('Sources')"> Graphical Representation </div>
+    <div onclick="showPage('Conclusion')"> Conclusion </div>
+
+    
+    <div onclick="showPage('members')">Members</div>
+  </nav>
+</section>
+
+<!-- INTRODUCTION -->
+<section id="intro">
+  <button class="back" onclick="showPage('home')">⬅Back</button>
+  <h2 class="pageTitle">Introduction</h2>
+  <div class="content">
+
+<h1>Sets</h1>
+
+<p>
+A set is a well-defined collection of distinct objects. It is represented by a capital letter.
+The number of elements in a finite set is known as the cardinal number of a set.
+</p>
+
+<h2>Commonly Used Sets</h2>
+
+    <img src="set.jpeg">
+          
+
+    <ul>
+    <li><b>N</b> : Set of all natural numbers</li>
+    <li><b>Z</b> : Set of all integers</li>
+    <li><b>Q</b> : Set of all rational numbers</li>
+    <li><b>R</b> : Set of all real numbers</li>
+    <li><b>Z<sup>+</sup></b> : Set of all positive integers</li>
+</ul>
+
+<h2>Representation of Sets</h2>
+
+<p>
+The elements in a set can be represented in Statement Form, Roster Form, or Set Builder Form.
+</p>
+
+<h3>Statement Form</h3>
+
+<p>
+In statement form, the well-defined descriptions of the members of a set are written and enclosed within curly brackets.
+</p>
+
+<p><b>Example:</b> The set of even numbers less than 15.</p>
+
+<h3>Roster Form</h3>
+
+<p>
+In roster form, all the elements of a set are listed.
+</p>
+
+<p>
+<b>Natural Numbers less than 5:</b><br>
+{1, 2, 3, 4}
+</p>
+
+<h3>Set Builder Form</h3>
+
+<p>
+The general form is:
+</p>
+
+<p><b>A = { x : property }</b></p>
+
+<p>
+Example:<br>
+A = {2, 4, 6, 8}
+</p>
+
+<p>
+Given set in set-builder form:<br>
+A = {x : x = 2n, n ∈ N and 1 ≤ n ≤ 4}
+</p>
+
+<h2>Union of Sets</h2>
+
+<img src="u.jpeg">
+<p>
+If set A and set B are two sets, then A union B is the set that contains all the elements of set A and set B.
+It is denoted as A ∪ B.
+</p>
+
+<p>
+<b>Example:</b><br>
+A = {1,2,3}<br>
+B = {4,5,6}<br>
+A ∪ B = {1,2,3,4,5,6}
+</p>
+
+
+<h2>Intersection of Sets</h2>
+
+<img src="i.png">
+
+<p>
+If set A and set B are two sets, then A intersection B is the set that contains only the common elements between set A and set B.
+It is denoted as A ∩ B.
+</p>
+
+<p>
+<b>Example:</b><br>
+A = {1,2,3}<br>
+B = {4,5,6}<br>
+A ∩ B = { } or Ø
+</p>
+
+<p>
+Since A and B do not have any elements in common, their intersection is the null set.
+</p>
+
+
+<h2>Complement of Sets</h2>
+<img src="sets/c.png">
+
+<p>
+The complement of any set, say P, is the set of all elements in the universal set that are not in set P.
+It is denoted by P'.
+</p>
+<h2> Two and Three venn diagram Sets</h2>
+<div class="image-container">
+<img src="two.png">
+<img src="three.png">
+
+</div>
+
+
+
+
+
+<h2>Important Formulae</h2>
+
+<p>
+n(A ∪ B) = n(A) + n(B) − n(A ∩ B)
+</p>
+
+<p>
+If A ∩ B = ∅, then :n(A ∪ B) = n(A) + n(B)
+</p>
+
+<p>
+n(A − B) + n(A ∩ B) = n(A)
+</p>
+
+<p>
+n(B − A) + n(A ∩ B) = n(B)
+</p>
+
+<p>
+n(A − B) + n(A ∩ B) + n(B − A) = n(A ∪ B)
+</p>
+
+<p>
+n(A ∪ B ∪ C) = n(A) + n(B) + n(C)− n(A ∩ B)− n(B ∩ C)− n(C ∩ A)+ n(A ∩ B ∩ C)
+</p>
+
+
+     </div>
+</section>
+
+<!-- REMOTE LOGIN -->
+<section id="remote">
+  <button class="back" onclick="showPage('home')">⬅ Back</button>
+  <h2 class="pageTitle">Acknowledgement</h2>
+  <div class="content">
+  <h1> Acknowledgement </h1>
+  <img src="f.jpeg" style="display: block; margin: 0 auto; height: 250px; width: auto;" alt="School Logo">
+ <p style="font-size:26px;">We would like to express our gratitude to our math teacher,  <b>Mr.Ananda Sapkota</b> , for giving us the opportunity to work on this project about <b>Sets And Survey</b>. His  guidance, clear explanations, and valuable feedback helped us understand the concepts and complete this project successfully. We also acknowledge the school administration,<b> Fluorescent Secondary School </b>, for providing us with the necessary  resources  to conduct  our project.</p> 
+
+  </div>
+</section>
+
+<!-- PROTOCOLS -->
+<section id="protocols">
+  <button class="back" onclick="showPage('home')">⬅ Back</button>
+  <h2 class="pageTitle">Thanksgiving</h2>
+  <div class="content">
+  
+<h1>Thanksgiving</h1>
+
+<p style="font-size: 26px;">
+    We also want to extend our heartfelt thanks to our parents and family members for their constant encouragement and for providing a supportive environment at home. Additionally, we are thankful to our classmates and group members for their excellent teamwork, coordination, and mutual support during this project. Everyone's joint efforts made this learning experience truly enjoyable.
+</p>
+
+    </div>
+</section>
+
+<!-- ZOOM & BLOGS -->
+<section id="zoom">
+  <button class="back" onclick="showPage('home')">⬅ Back</button>
+  <h2 class="pageTitle">Sources </h2>
+  <div class="content">
+  <h2> Sources of Survey </h2>
+<p> The main source of our data was the  students of eighth-grade  at Fluorescent Secondary School. We interviewed a total of 152 students across four different classrooms: Class 8A, 8B, 8C, and 8D. These classmates acted as our direct, first-hand sources by sharing their real personal preferences regarding anime, movies, and series.</p>
+
+<p> For our data collection tools, we relied on traditional stationery items including pens, pencils, and a notebook. Using paper and pencils allowed us to easily move from room to room and quickly write down responses without needing technology. This notebook served as our physical master file where we created tally marks and drew our first rough Venn diagrams.</p> 
+
+<p> The physical sources of our research were the classrooms themselves within the school building. By physically visiting each section during school hours, we were able to survey the students in their natural daily environment. This face-to-face field method helped us get answers from almost everyone in the class quickly and handle any questions on the spot.</p>
+
+
+</div>
+</section>
+
+<section id="social">
+  <button class="back" onclick="showPage('home')">⬅ Back</button>
+  <h2 class="pageTitle"> Data analysis  </h2>
+  <div class="content">
+
+    <h1>Grade 8 Media Preference Survey</h1>
+    
+    <p>Our group conducted a survey across four sections of Grade 8—namely Class 8A, 8B, 8C, and 8D—covering a total sample size of 152 students to explore their interest in Anime (A), Movies (M), and Series (S).</p>
+
+    <h2>Venn Diagram Data Table</h2>
+    <table class="survey-table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Class 8A</th>
+                <th>Class 8B</th>
+                <th>Class 8C</th>
+                <th>Class 8D</th>
+                <th>Combined Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row-highlight">
+                <td>Total Surveyed (n(U))</td>
+                <td>38</td>
+                <td>37</td>
+                <td>39</td>
+                <td>38</td>
+                <td>152</td>
+            </tr>
+            <tr>
+                <td>Anime Only</td>
+                <td>6</td>
+                <td>5</td>
+                <td>6</td>
+                <td>5</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Movies Only</td>
+                <td>5</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>Series Only</td>
+                <td>4</td>
+                <td>5</td>
+                <td>4</td>
+                <td>4</td>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>Anime &amp; Movies Only (A ∩ M)</td>
+                <td>5</td>
+                <td>4</td>
+                <td>4</td>
+                <td>5</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Anime &amp; Series Only (A ∩ S)</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>3</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Movies &amp; Series Only (M ∩ S)</td>
+                <td>4</td>
+                <td>4</td>
+                <td>5</td>
+                <td>4</td>
+                <td>17</td>
+            </tr>
+            <tr class="row-highlight">
+                <td>All Three (A ∩ M ∩ S)</td>
+                <td>5</td>
+                <td>5</td>
+                <td>6</td>
+                <td>5</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>None (A U M U S)'</td>
+                <td>6</td>
+                <td>7</td>
+                <td>6</td>
+                <td>6</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+    </table>
+     <h2>Representing information in Venn diagram</h2>
+  <img src="v.png" style="display: block; margin: 0 auto; height: 300px; width: auto;">
+  
+    <h2>Survey Analysis</h2>
+    <p>We analyzed the data from the survey. Our group survey and analysis looked at what 152 eighth-grade students watch. We collected data from four classes (8A, 8B, 8C, and 8D) about Anime, Movies, and Series.</p>
+    
+    <p>We found out that Movies are the most popular choice with 76 viewers, and Anime is a close second with 73 viewers. Series came in last with 67 viewers. While many students only like one specific type, a big group of 21 students love to watch all three. On the other hand, there are 25 students who do not watch any of them at all.</p>
+    
+    <p>Overall, our study shows that most eighth graders love watching videos in their free time, especially movies and anime, and many enjoy switching between different types of shows.</p>
+
+
+</div>
+</section>
+
+
+
+
+<section id="Sources">
+<button class="back" onclick="showPage('home')">⬅ Back</button>
+<h2 class="pageTitle"> Graphical Presentation </h2>
+<div class= "content">
+<h2> Bar Graph </h2> 
+<p> The bar graph of class 8 students liking anime,movies and series:</p> <br>
+<img src="bar.png" style="display: block; margin: 0 auto; height: 400px; width: auto;">
+<h2> Pie chart </h2> 
+<p> The pie chart of the survey  is given below:</p> <br> 
+<img src="p.png" style="display: block; margin: 0 auto; height: 400px; width: auto;">
+
+
+</div>
+</section>
+
+
+
+
+<section id="Conclusion">
+  <button class="back" onclick="showPage('home')">⬅ Back</button>
+  <h2 class="pageTitle">Conclusion</h2>
+  <div class="content">
+  <h2> Main Conclusion </h2> 
+  <p> In conclusion, our survey shows that eighth graders at Fluorescent Secondary School love watching videos in their free time. Movies and anime are the most popular choices among the students. We also found out that many classmates do not just watch one thing; they like to switch between different types of shows, and twenty-one students love watching all three.</p> <br> 
+ <p> This project was also a great way for us to learn about math sets in real life. By doing a practical survey and sorting the names ourselves, we now clearly understand how mathematical ideas like unions, intersections, and universal sets work outside the textbook. Overall, this project showed us what our friends like to watch while proving that math is a very useful tool for understanding the world around us.</p>
+
+  </div>
+  </section>
+
+
+
+<section id="members">
+<button class="back" onclick="showPage('home')">⬅ Back</button>
+<h2 class="pageTitle">Members</h2>
+
+<div class="members-container">
+
+<div class="member-box" style="background:#ff6b6b;">
+<img src="Sanjok.png">
+<h3>Sanjok Silwal (C) </h3>
+</div>
+
+<div class="member-box" style="background:#4ecdc4;">
+<img src="kalpu.png">
+<h3>Kalpit Pandey </h3>
+</div>
+
+<div class="member-box" style="background:#ffa502;">
+<img src="Anka.png">
+<h3>Ankit Raj Pathak</h3>
+</div>
+
+<div class="member-box" style="background:#1e90ff;">
+<img src="abl.png">
+<h3>Abhilekh Adhikari</h3>
+</div>
+
+<div class="member-box" style="background:#2ed573;">
+<img src="Pabu.png">
+<h3>Pabit Regmi</h3>
+</div>
+
+</div>
+</section>
+</body>
+</html> 
